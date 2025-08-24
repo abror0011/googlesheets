@@ -37,6 +37,7 @@ artisan-fetch: ## Fetch google sheets data
 
 # Docker
 install: ## Install and start the application
+	cp .env.example .env
 	docker-compose up -d --build
 	@echo "Application is starting up..."
 	@echo "Wait a few moments for initialization to complete"
