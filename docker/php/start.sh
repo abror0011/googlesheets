@@ -1,35 +1,35 @@
 #!/bin/bash
 
 # Wait for database to be ready
-echo "Waiting for database to be ready..."
-while ! php artisan migrate:status > /dev/null 2>&1; do
-    echo "Database not ready, waiting..."
-    sleep 5
-done
+#echo "Waiting for database to be ready..."
+#while ! php artisan migrate:status > /dev/null 2>&1; do
+#    echo "Database not ready, waiting..."
+#    sleep 5
+#done
 
 # Install dependencies
 echo "Installing Composer dependencies..."
-composer install --no-interaction
+composer install
 
 # Generate application key if not exists
-if [ ! -f .env ]; then
-    echo "Creating .env file..."
-    cp .env.example .env 2>/dev/null || echo "APP_KEY=" > .env
-fi
+#if [ ! -f .env ]; then
+#    echo "Creating .env file..."
+#    cp .env.example .env 2>/dev/null || echo "APP_KEY=" > .env
+#fi
 
 # Generate application key
 echo "Generating application key..."
-php artisan key:generate --force
+php artisan key:generate
 
 # Run migrations
 echo "Running migrations..."
-php artisan migrate --force
+php artisan migrate
 
 # Create queue tables if they don't exist
 echo "Setting up queue tables..."
 php artisan queue:table 2>/dev/null || true
 php artisan queue:failed-table 2>/dev/null || true
-php artisan migrate --force
+php artisan migrate
 
 # Clear caches
 echo "Clearing caches..."

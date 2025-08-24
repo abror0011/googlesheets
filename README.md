@@ -25,6 +25,8 @@ This is a web application built on Laravel 12 with the following main features:
 
 ## Running with Docker
 
+## Before start install need set Google Cloud API secrets (path: ./storage/app/sheets/credentials.json)
+
 ### 1. Clone and Install the Project
 
 ```bash

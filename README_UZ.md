@@ -25,6 +25,8 @@ Bu Laravel 12 asosida qurilgan web-ilova bo'lib, quyidagi asosiy funksiyalarga e
 
 ## Docker orqali ishga tushirish
 
+## O'rnatishni boshlashdan oldin Google Cloud API credentials faylini o'rnatish kerak (yo'l: ./storage/app/sheets/credentials.json)
+
 ### 1. Loyihani klonlash va o'rnatish
 
 ```bash
